@@ -14,7 +14,7 @@ private:
 public:
     Train()
     {
-        trainNo = 0;
+        trainCount = 0;
         trainCount++;
     }
     ~Train()
@@ -24,11 +24,11 @@ public:
 
     void input_TrainDetails()
     {
-        cout << "Enter Train Details : " << endl;
-        cout << "Enter Train Number : " << endl;
+        cout<<endl<<"Add "<<trainCount<<" Train Details : "<< endl;
+        cout << "Enter Train Number : ";
         cin >> trainNo;
         cin.ignore();
-        cout << "Enter Train Name : " << endl;
+        cout << "Enter Train Name : ";
         getline(cin, trainName);
         cout << "Enter Source: ";
         getline(cin, source);
@@ -39,6 +39,7 @@ public:
     }
     void display_TrainDetails()
     {
+        cout<<endl<<"Details of "<<trainCount<<" Train"<<endl;
         cout << "Enter Train Number : " << trainNo << endl;
         cout << "Enter Train Name : " << trainName << endl;
         cout << "Enter Source : " << source << endl;
@@ -51,7 +52,7 @@ public:
         return trainNo;
     }
 };
-int Train::trainCount = 0;
+int Train::trainCount = 1;
 
 class RailwayStation
 {
@@ -76,11 +77,14 @@ public:
     {
         for (int i = 0; i < totaltrain; i++)
         {
+            bool found = false;
             if (t[i].get_TrainNumber() == num)
             {
                 t[i].display_TrainDetails();
+                found = true;
+                break;
             }
-            else
+            if(!found)
             {
                 cout<<"Train Not Found!!"<<endl;
             }
@@ -95,7 +99,7 @@ int main()
     
     do
     {
-        cout<<"---------- Railway Station System ----------------- "<<endl;
+        cout<<endl<<"---------------- Railway Station System ---------------- "<<endl;
         cout<<"1 : Add train "<<endl;
         cout<<"2 : Dispaly All train "<<endl;
         cout<<"3 : Search train "<<endl;
