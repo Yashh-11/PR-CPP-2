@@ -24,7 +24,8 @@ public:
 
     void input_TrainDetails()
     {
-        cout<<endl<<"Add "<<trainCount<<" Train Details : "<< endl;
+        cout << endl
+             << "Add " << trainCount << " Train Details : " << endl;
         cout << "Enter Train Number : ";
         cin >> trainNo;
         cin.ignore();
@@ -39,7 +40,8 @@ public:
     }
     void display_TrainDetails()
     {
-        cout<<endl<<"Details of "<<trainCount<<" Train"<<endl;
+        cout << endl
+             << "Details of " << trainCount << " Train" << endl;
         cout << "Enter Train Number : " << trainNo << endl;
         cout << "Enter Train Name : " << trainName << endl;
         cout << "Enter Source : " << source << endl;
@@ -77,35 +79,30 @@ public:
     {
         for (int i = 0; i < totaltrain; i++)
         {
-            bool found = false;
             if (t[i].get_TrainNumber() == num)
             {
                 t[i].display_TrainDetails();
-                found = true;
-                break;
+                return;
             }
-            if(!found)
-            {
-                cout<<"Train Not Found!!"<<endl;
-            }
-            
         }
+        cout << "Train Not Found!!" << endl;
     }
 };
 int main()
 {
     RailwayStation rs;
-    int num,choice,n;
-    
+    int num, choice, n;
+
     do
     {
-        cout<<endl<<"---------------- Railway Station System ---------------- "<<endl;
-        cout<<"1 : Add train "<<endl;
-        cout<<"2 : Dispaly All train "<<endl;
-        cout<<"3 : Search train "<<endl;
-        cout<<"4 : Exit "<<endl;
-        cout<<"Enter Your Choice : ";
-        cin>>choice;
+        cout << endl
+            << "---------------- Railway Station System ---------------- " << endl;
+        cout << "1 : Add train " << endl;
+        cout << "2 : Dispaly All train " << endl;
+        cout << "3 : Search train " << endl;
+        cout << "4 : Exit " << endl;
+        cout << "Enter Your Choice : ";
+        cin >> choice;
         switch (choice)
         {
         case 1:
@@ -115,19 +112,18 @@ int main()
             rs.displayAllTrains();
             break;
         case 3:
-            cout<<"Enter Train Number : ";
-            cin>>num;
+            cout << "Enter Train Number : ";
+            cin >> num;
             rs.searchTrain(num);
             break;
         case 4:
-            cout<<"You are Exit!!";
+            cout << "You are Exit!!";
             break;
         default:
-            cout<<"Invalid Choice";
+            cout << "Invalid Choice";
             break;
         }
-    }while (choice!=4);
-    
+    } while (choice != 4);
 
     return 0;
 }
